@@ -4,7 +4,7 @@
 - **Staging:** https://staging-smilesofpensacola-com.dental-marketing.workers.dev
 - **Zone:** `c29b1600c92993f43d9297f3e6801cd5` (Free plan), SSL mode Full
 - **Repo:** DentalMarketing-com/smilesofpensacola.com
-- **Status:** **Blocked at preflight.** DNS not changed.
+- **Status:** Preflight passed (2026-10-24 rerun). Ready for DNS cutover; DNS not changed yet.
 
 ## Zone snapshot (2026-10-24, before cutover)
 
@@ -30,9 +30,18 @@ No Worker routes or custom domains on the zone yet; workers.dev is enabled.
 - Remote branches: `main` = `preview` = 63db86f (Initial commit);
   `staging` = `development` = 1f6f70c.
 
-**Unblock:** merge the client build into `main` (via PR), let Workers Builds
+**Unblock (done):** merge the client build into `main` (via PR), let Workers Builds
 redeploy, rerun the preflight, then follow RUNBOOK steps 2–5.
+
+## Preflight rerun (2026-10-24, after Judith merged to main)
+
+- `main` = `staging` = `development` = 1f6f70c. (`preview` is still 63db86f; it doesn't affect production.)
+- Production deploy 14:59 UTC via wrangler by Judith. Var `CANONICAL_HOST=www.smilesofpensacola.com`.
+- Title "Family Dentist in Pensacola, FL | Perdido Family Dentistry", `tel:+18509898567`, no noindex.
+- robots.txt sitemap → `www.smilesofpensacola.com/sitemap.xml`; sitemap 200, 44 URLs on www.
+- Sample `_redirects` rules return 301 to the expected targets.
 
 ## Log
 
 - 2026-10-24: Preflight failed (production on template). Cutover held; told Judith.
+- 2026-10-24: Judith merged the build to main; preflight rerun passed.
