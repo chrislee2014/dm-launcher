@@ -6,6 +6,7 @@ what has gone wrong along the way.
 
 - [RUNBOOK.md](RUNBOOK.md): the cutover, step by step.
 - [PITFALLS.md](PITFALLS.md): things that bit us, and how to catch them.
+- [PLATFORM-LIMITS.md](PLATFORM-LIMITS.md): Sanity / Cloudflare plan limits at ~200 sites.
 - [sites/](sites/): one log per launched site (state before, what was
   done, verification results).
 
