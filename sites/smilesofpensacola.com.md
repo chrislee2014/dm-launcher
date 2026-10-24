@@ -4,7 +4,7 @@
 - **Staging:** https://staging-smilesofpensacola-com.dental-marketing.workers.dev
 - **Zone:** `c29b1600c92993f43d9297f3e6801cd5` (Free plan), SSL mode Full
 - **Repo:** DentalMarketing-com/smilesofpensacola.com
-- **Status:** Preflight passed (2026-10-24 rerun). Ready for DNS cutover; DNS not changed yet.
+- **Status:** **Live on the Worker** since 2026-10-24 ~15:04 UTC. Waiting on Judith's final verification, then cleanup (RUNBOOK step 5).
 
 ## Zone snapshot (2026-10-24, before cutover)
 
@@ -41,7 +41,29 @@ redeploy, rerun the preflight, then follow RUNBOOK steps 2–5.
 - robots.txt sitemap → `www.smilesofpensacola.com/sitemap.xml`; sitemap 200, 44 URLs on www.
 - Sample `_redirects` rules return 301 to the expected targets.
 
+## Cutover (2026-10-24 ~15:04 UTC, via API)
+
+1. Deleted `A @ 198.202.211.1` (id b25371bf…) and `CNAME www cdn.webflow.com` (id 1e190726…).
+2. `PUT /accounts/{id}/workers/domains` for `www.smilesofpensacola.com` then
+   `smilesofpensacola.com` → `smilesofpensacola-com` (production). Cloudflare
+   created proxied `AAAA 100::` records for both.
+3. Downtime was seconds: both API calls ran back to back in one script.
+
+**Verified:**
+- `https://smilesofpensacola.com/` → 301 `https://www.smilesofpensacola.com/`; path and query kept.
+- `http://` → 301 https on both hosts.
+- www serves the Perdido build (title, `tel:(850)989-8567`).
+- `_redirects` samples: `/articles/general/502365-abscessed-tooth` → `/`, `/doctor-individual-change-to-doctors-name` → `/dr-john-ledford`.
+- robots.txt and sitemap.xml 200; unknown path 404.
+- Certificates: Universal pack (apex + `*.smilesofpensacola.com`) active; two Advanced packs still initializing at check time.
+- Zone has no redirect rulesets or page rules; MX, `mail`, DKIM and google-site-verification untouched.
+
+**Left for Judith:** phones/DNI, forms, the blog rebuild hook, and her final stage.
+
+**Cleanup after her OK:** delete `_webflow` TXT (id 21b4d9a7…), cancel Webflow hosting.
+
 ## Log
 
 - 2026-10-24: Preflight failed (production on template). Cutover held; told Judith.
 - 2026-10-24: Judith merged the build to main; preflight rerun passed.
+- 2026-10-24: DNS cutover done; apex/www live on the Worker. Handed to Judith for final verification.
