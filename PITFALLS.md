@@ -46,3 +46,23 @@ Cutting over apex and www doesn't move `visit.`, `promo.`, or a wildcard
 `198.202.211.1`). Those keep working until Webflow hosting is cancelled, then
 die quietly. Before cancelling, list every zone record whose content
 matches Webflow and decide each one.
+
+## 6. Old WAF rules wake up at cutover
+
+**Sites:** chesterfieldwoodlakedental.com, lithiaspringsdental.com,
+shortpumpfamilydentistry.com, 2026-10-26.
+Webflow records were DNS-only (grey cloud), so traffic never passed Cloudflare's
+WAF. Worker custom domains are always proxied, so the zone's custom rules
+apply from the moment of cutover. WordPress-era rules from 2023 suddenly fired:
+- "International Challenge": `js_challenge` for every non-US visitor
+  (chesterfield, lithiasprings). Shows "Just a moment..." to anyone abroad,
+  plus non-US crawlers, link-preview bots and monitoring.
+- "Semi-Aggressive Blocking": hard `block` for 22 countries incl. DE/FR/NL
+  (lithiasprings).
+- "Aggressive Blocking": `block` non-US/CO/GT/PH on `/blog` (shortpump).
+Checks from a US machine pass, so the batch verify missed it.
+**Catch it:** in preflight, list enabled rules in
+`/zones/{zone}/rulesets/phases/http_request_firewall_custom/entrypoint`, plus
+page rules (forwarding_url / cache_level) and security_level. Decide on each
+before cutover. Rules aimed only at `wp-login` / `xmlrpc.php` / `user.ini`
+are harmless on a static site.

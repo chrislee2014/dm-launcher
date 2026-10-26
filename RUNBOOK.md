@@ -16,6 +16,7 @@ curl -s $W/robots.txt            # Sitemap: must be the client's domain
 - The phone numbers are the client's numbers (not 555).
 - It matches what the staging URL shows: `git ls-remote origin` shows `main`
   and `staging` on the same commit, or `main` ahead of it.
+- Enabled zone WAF custom rules, page rules and security level are reviewed (PITFALLS #6): geo challenges/blocks start firing once the domain is proxied.
 - No Coming Soon, landing, or promo mode is left on in the production env vars
   unless that's intended.
 
