@@ -38,3 +38,11 @@ proxy's issuer, not Cloudflare's. Check certificates through the API
 machine. The Universal pack (`<domain>` + `*.<domain>`) covers www and is
 usually already active; extra Advanced packs show `initializing` for a few
 minutes and aren't a blocker.
+
+## 5. Webflow-hosted subdomains hide in the zone
+
+Cutting over apex and www doesn't move `visit.`, `promo.`, or a wildcard
+`*` that also points at Webflow (`cdn.webflow.com`, `proxy-ssl.webflow.com`,
+`198.202.211.1`). Those keep working until Webflow hosting is cancelled, then
+die quietly. Before cancelling, list every zone record whose content
+matches Webflow and decide each one.
