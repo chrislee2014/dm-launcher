@@ -10,7 +10,7 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
 |---|---|
 | Work list | "Webflow to Astro Migration - Control Sheet", tab **Roxy - Batches** (sheet `1FgGnVN1N7Rq07gR9XE3qPobIdyp6yAnS9Fa7wdL4hNU`) |
 | Read / write the sheet | n8n **Broker: Migration Sheet (Roxy - Batches)** (`s6Rza5KbcVdiBOp1`): `{action:"read"}`; `{action:"update", domain, launched:"Yes", note}` writes only P and Q, note appended. Uses n8n credential "Alfred Google Drive" (Alfred has edit access). Call with the n8n MCP `execute_workflow`, executionMode `production`, trigger `Broker Webhook`, `webhookData: {method:"POST", body:{...}}` |
-| DNS, Workers, WAF | Cloudflare API MCP, account Dental Marketing |
+| DNS, Workers, WAF | Cloudflare API MCP, account Dental Marketing. **Fallback** if the MCP fails to connect (happened on the 2026-11-12 test run): the REST API with curl, `Authorization: Bearer $CLOUDFLARE_API_TOKEN`, account `$CLOUDFLARE_ACCOUNT_ID` (set in the task's environment; confirmed it reads zones, DNS, Workers, custom domains, rulesets, bot settings; write access unconfirmed). Never print the token. |
 | Messages | Slack MCP (posts as **Alfred**). Channel `C0CG9QQ9MTN` (Chris, Roxy, Ignacio) |
 | People | Chris `U03VCDX7059` (launches with Claude), Roxy `U06MW1BRHUZ` (client approval, adds domain to Cloudflare), Ignacio `U063DF5GGHG` (DNS QA, switches nameservers), Judith `U02HJRMRSQ2` (builds the sites; DM only) |
 
@@ -54,7 +54,11 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
    - Anything else (zone not active, WAF/Bot rules, unexpected records): post in
      the channel tagging **Chris**, and tag Roxy/Ignacio if it's their step.
    - Broker `update` with a dated note in Q. Do not touch P.
-5. **Clean:** launch per RUNBOOK steps 2–4 (delete the Webflow pair, attach www +
+5. **Clean:** before deleting anything, prove you can write: re-save the apex
+   record unchanged (`PATCH` with its current content, proxied and ttl). If that
+   fails (no MCP and the token is read-only), do not launch: tag Chris in the
+   channel that the site is ready but Cloudflare write access is missing.
+   Then launch per RUNBOOK steps 2–4 (delete the Webflow pair, attach www +
    apex as Worker custom domains, verify apex/www redirect to canonical, Worker
    title on canonical, certs active, MX unchanged; retry verification for ~3 min,
    PITFALLS #3).
@@ -63,7 +67,7 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
    - **Failed:** roll back (remove the custom domains, recreate the snapshotted
      records), broker note in Q with the reason, tag **Chris** in the channel. If
      the cause is on Judith's side (build/config), DM Judith instead.
-6. **Log** every launch or failure in `sites/` (one file per domain or batch) and push.
+6. **Log** every launch or failure in `sites/` (one file per domain or batch) and push. If the push fails (the scheduled session may not have push access), post the log text as a thread reply under the daily summary and say the push failed.
 7. **Daily summary** in the channel (one message; mention any Slack context that changed what you did): launched today, blocked with
    reason and owner, and items stuck more than 3 days at a stage, tagging the
    owner (Roxy: approval/contact; Ignacio: DNS QA/NS switch; Judith via DM:
