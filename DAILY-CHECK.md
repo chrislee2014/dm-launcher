@@ -1,6 +1,7 @@
-# Daily launch check (draft, not scheduled yet)
+# Daily launch check
 
-Runs once a day as a scheduled Claude session. Each run starts with no memory:
+Runs Monday to Friday at about 10:00 America/New_York as a scheduled Claude session (fresh session each time).
+Chris approved launching without a human check when every preflight check passes (2026-11-12). Each run starts with no memory:
 this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
 
 ## Sources and tools
@@ -8,7 +9,7 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
 | What | How |
 |---|---|
 | Work list | "Webflow to Astro Migration - Control Sheet", tab **Roxy - Batches** (sheet `1FgGnVN1N7Rq07gR9XE3qPobIdyp6yAnS9Fa7wdL4hNU`) |
-| Read / write the sheet | n8n **Broker: Migration Sheet (Roxy - Batches)** (`s6Rza5KbcVdiBOp1`): `{action:"read"}`; `{action:"update", domain, launched:"Yes", note}` writes only P and Q, note appended |
+| Read / write the sheet | n8n **Broker: Migration Sheet (Roxy - Batches)** (`s6Rza5KbcVdiBOp1`): `{action:"read"}`; `{action:"update", domain, launched:"Yes", note}` writes only P and Q, note appended. Uses n8n credential "Alfred Google Drive" (Alfred has edit access). Call with the n8n MCP `execute_workflow`, executionMode `production`, trigger `Broker Webhook`, `webhookData: {method:"POST", body:{...}}` |
 | DNS, Workers, WAF | Cloudflare API MCP, account Dental Marketing |
 | Messages | Slack MCP (posts as **Alfred**). Channel `C0CG9QQ9MTN` (Chris, Roxy, Ignacio) |
 | People | Chris `U03VCDX7059` (launches with Claude), Roxy `U06MW1BRHUZ` (client approval, adds domain to Cloudflare), Ignacio `U063DF5GGHG` (DNS QA, switches nameservers), Judith `U02HJRMRSQ2` (builds the sites; DM only) |
