@@ -88,9 +88,11 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
    1001/1014/409 error, TLS handshake failure or Webflow "404req" means it's
    down. Report new ones in the summary tagging Chris. Only auto-redirect one if
    HubSpot shows it as the website/additional domain of a site we've already
-   launched (same rule as aliases); otherwise report only. Known as of
-   2026-11-16 (reported to Chris, not ours to fix without him): comfortdental4me.com,
-   kurzfamilydentistry.com, dentaldesignsclermont.com, smileperdido.com.
+   launched (same rule as aliases); otherwise report only. Ignore (lost
+   clients, Chris 2026-11-16): comfortdental4me.com (+ its location subdomains),
+   kurzfamilydentistry.com (practice is now doublecaredental.com). Fixed 2026-11-16:
+   dentaldesignsclermont.com → www.ddsclermont.com, smileperdido.com →
+   www.smilesofpensacola.com (old domains, 301 rules).
 7. **Daily summary** in the channel (one message; mention any Slack context that changed what you did): launched today, blocked with
    reason and owner, and items stuck more than 3 days at a stage, tagging the
    owner (Roxy: approval/contact; Ignacio: DNS QA/NS switch; Judith via DM:
