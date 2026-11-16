@@ -11,6 +11,7 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
 | Work list | "Webflow to Astro Migration - Control Sheet", tab **Roxy - Batches** (sheet `1FgGnVN1N7Rq07gR9XE3qPobIdyp6yAnS9Fa7wdL4hNU`) |
 | Read / write the sheet | n8n **Broker: Migration Sheet (Roxy - Batches)** (`s6Rza5KbcVdiBOp1`): `{action:"read"}`; `{action:"update", domain, launched:"Yes", note}` writes only P and Q, note appended. Uses n8n credential "Alfred Google Drive" (Alfred has edit access). Call with the n8n MCP `execute_workflow`, executionMode `production`, trigger `Broker Webhook`, `webhookData: {method:"POST", body:{...}}` |
 | DNS, Workers, WAF | Cloudflare API MCP, account Dental Marketing. **Fallback** if the MCP fails to connect (happened on the 2026-11-12 test run): the REST API with curl, `Authorization: Bearer $CLOUDFLARE_API_TOKEN`, account `$CLOUDFLARE_ACCOUNT_ID` (set in the task's environment; confirmed it reads zones, DNS, Workers, custom domains, rulesets, bot settings; write access unconfirmed). Never print the token. |
+| Alias lookup | HubSpot CRM API with curl, read-only: `POST https://api.hubapi.com/crm/v3/objects/companies/search` with `Authorization: Bearer $HUBSPOT_API_TOKEN` (env var on the task's environment; never print it), filter `domain EQ <domain>`, properties `name,domain,website,hs_additional_domains` |
 | Messages | Slack MCP (posts as **Alfred**). Channel `C0CG9QQ9MTN` (Chris, Roxy, Ignacio) |
 | People | Chris `U03VCDX7059` (launches with Claude), Roxy `U06MW1BRHUZ` (client approval, adds domain to Cloudflare), Ignacio `U063DF5GGHG` (DNS QA, switches nameservers), Judith `U02HJRMRSQ2` (builds the sites; DM only) |
 
@@ -48,6 +49,10 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
    - no enabled WAF custom rule beyond WordPress-path rules (wp-login, xmlrpc,
      user.ini); Bot Fight Mode off; no forwarding page rule that conflicts
    - list other records still pointing at Webflow (visit/promo/wildcard): report only
+   - **alias domains (PITFALLS #7):** look up the HubSpot companies for the domain.
+     Every host in `website` and `hs_additional_domains` that isn't the domain
+     itself is an alias. For each alias: in our Cloudflare account? zone active?
+     what do its apex/www point at? An alias never blocks the launch.
 4. **Preflight problem:** do not launch.
    - Build/config problem (template on main, CANONICAL_HOST empty, Worker missing,
      Coming Soon on): **DM Judith** with exactly what's wrong and what to fix.
@@ -64,10 +69,28 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
    PITFALLS #3).
    - **Verified:** broker `update` launched=Yes + note; post in channel that it's
      live; DM Judith to run her post-launch checks and handle Webflow.
+   - **Aliases after a verified launch:** if the alias zone is active in our
+     account and its apex/www are only the Webflow pair, redirect it the way
+     michaelzurcherdds.com was done (sites/michaelzurcherdds.com.md): Redirect Rule
+     in `http_request_dynamic_redirect` (host in {apex, www} → 301 to
+     `concat("https://<canonical host>", http.request.uri.path)`, query kept),
+     apex A → `192.0.2.1` proxied, www → CNAME @ proxied, then verify. Leave MX
+     and every other record alone. If the alias is not in our account or not
+     active: tag Roxy (add it to Cloudflare) and Ignacio (nameservers), and tell
+     Judith in the launch DM **not to cancel Webflow until the alias is moved**.
    - **Failed:** roll back (remove the custom domains, recreate the snapshotted
      records), broker note in Q with the reason, tag **Chris** in the channel. If
      the cause is on Judith's side (build/config), DM Judith instead.
 6. **Log** every launch or failure in `sites/` (one file per domain or batch) and push. If the push fails (the scheduled session may not have push access), post the log text as a thread reply under the daily summary and say the push failed.
+6b. **Broken-domain sweep** (every run, detective): list active zones in our
+   account whose apex or www **A/CNAME** (not TXT) points at Webflow
+   (`198.202.211.1`, `cdn.webflow.com`, `proxy-ssl.webflow.com`). Fetch each; a
+   1001/1014/409 error, TLS handshake failure or Webflow "404req" means it's
+   down. Report new ones in the summary tagging Chris. Only auto-redirect one if
+   HubSpot shows it as the website/additional domain of a site we've already
+   launched (same rule as aliases); otherwise report only. Known as of
+   2026-11-16 (reported to Chris, not ours to fix without him): comfortdental4me.com,
+   kurzfamilydentistry.com, dentaldesignsclermont.com, smileperdido.com.
 7. **Daily summary** in the channel (one message; mention any Slack context that changed what you did): launched today, blocked with
    reason and owner, and items stuck more than 3 days at a stage, tagging the
    owner (Roxy: approval/contact; Ignacio: DNS QA/NS switch; Judith via DM:
