@@ -66,3 +66,18 @@ Checks from a US machine pass, so the batch verify missed it.
 page rules (forwarding_url / cache_level) and security_level. Decide on each
 before cutover. Rules aimed only at `wp-login` / `xmlrpc.php` / `user.ini`
 are harmless on a static site.
+
+## 7. Old/alias domains die when Webflow stops serving the site
+
+**Site:** zurcherdentalesthetics.com (launched by the daily check 2026-11-16) →
+**michaelzurcherdds.com** went down the same day.
+The old domain was still at GoDaddy, pointing at Webflow (A `198.202.211.1`,
+www CNAME `cdn.webflow.com`), and Webflow redirected it to the main site. Once
+Webflow stopped serving that site, the old domain hit Webflow's edge with no site
+behind it: HTTPS handshake failure, HTTP "error code: 1001". Nothing in our
+Cloudflare account or the sheet mentioned the second domain.
+**Catch it:** before Webflow hosting is cancelled, list every domain connected
+to that Webflow site (Webflow site settings → Publishing → custom domains) and
+move each extra one first: a zone in our Cloudflare with a proxied placeholder
+record and a path-keeping 301 Redirect Rule to the canonical host, then switch its
+nameservers. Add these alias domains to the sheet so the daily check sees them.
