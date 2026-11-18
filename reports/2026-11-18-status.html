@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Astro Migration Status</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#14171c; --muted:#5b6472; --line:#e3e6eb;
+  --accent:#2f6fde; --accent-soft:#e7effc; --good:#1f8a5b; --good-soft:#e3f4ec;
+  --warn:#b7791f; --warn-soft:#fbf1df; --bad:#c2410c; --bad-soft:#fde9df;
+  --bar:#2f6fde; --bar-auto:#1f8a5b; --bar-manual:#9aa4b2;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1216; --card:#171b21; --ink:#e8ebf0; --muted:#9aa3b0; --line:#2a3039;
+    --accent:#6c9ef5; --accent-soft:#1c2a42; --good:#4cc38a; --good-soft:#15302a;
+    --warn:#e0a84a; --warn-soft:#33281a; --bad:#f08a5d; --bad-soft:#3a2219;
+    --bar:#6c9ef5; --bar-auto:#4cc38a; --bar-manual:#5d6775;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 64px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+h1{font-size:30px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0}
+.asof{font-size:13px;color:var(--muted);text-align:right}
+h2{font-size:19px;margin:0 0 14px;letter-spacing:-.005em}
+.section{margin-top:32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi .n{font-size:38px;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.kpi .l{font-weight:600;margin-top:6px}
+.kpi .d{color:var(--muted);font-size:13.5px;margin-top:2px}
+.kpi.accent .n{color:var(--accent)} .kpi.good .n{color:var(--good)} .kpi.warn .n{color:var(--warn)}
+.headline{font-size:17px;margin:0}
+.headline b{font-weight:650}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.grid2>*{min-width:0}
+td{overflow-wrap:anywhere}
+/* timeline */
+.tl{display:flex;align-items:flex-end;gap:14px;height:220px;padding:10px 4px 0;border-bottom:1px solid var(--line)}
+.tl .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.tl .stack{width:100%;max-width:64px;display:flex;flex-direction:column-reverse;border-radius:6px 6px 0 0;overflow:hidden}
+.tl .seg{width:100%}
+.tl .v{font-weight:700;font-size:14px;margin-bottom:6px}
+.tl-x{display:flex;gap:14px;padding:8px 4px 0}
+.tl-x div{flex:1;text-align:center;font-size:12.5px;color:var(--muted);min-width:0}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* funnel */
+.funnel .row{display:grid;grid-template-columns:170px 1fr 52px;align-items:center;gap:12px;margin:9px 0}
+.funnel .lab{font-size:14.5px}
+.funnel .track{background:var(--accent-soft);border-radius:6px;height:26px;overflow:hidden}
+.funnel .fill{height:100%;background:var(--accent);border-radius:6px}
+.funnel .num{font-weight:700;text-align:right}
+.note{font-size:13.5px;color:var(--muted);margin-top:12px}
+ul.clean{margin:0;padding:0;list-style:none}
+ul.clean li{padding:11px 0;border-top:1px solid var(--line)}
+ul.clean li:first-child{border-top:0;padding-top:0}
+.tag{display:inline-block;font-size:11.5px;font-weight:650;letter-spacing:.02em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-right:8px;vertical-align:1px}
+.t-good{background:var(--good-soft);color:var(--good)} .t-warn{background:var(--warn-soft);color:var(--warn)}
+.t-bad{background:var(--bad-soft);color:var(--bad)} .t-acc{background:var(--accent-soft);color:var(--accent)}
+.li-t{font-weight:600}
+.li-d{color:var(--muted);font-size:14px;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;border-top:0}
+td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.owner{white-space:nowrap;color:var(--muted)}
+.flow{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
+.flow .step{flex:1;min-width:150px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px}
+.flow .step b{display:block;font-size:14px}
+.flow .step span{font-size:13px;color:var(--muted)}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.owner{white-space:normal}}
+@media (max-width:520px){.wrap{padding:24px 16px 48px}.kpis{grid-template-columns:1fr 1fr}.kpi .n{font-size:30px}
+  .funnel .row{grid-template-columns:110px 1fr 40px}.tl{gap:6px}.tl-x{gap:6px}h1{font-size:24px}}
+@media print{body{background:#fff}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>Webflow to Astro Migration</h1>
+    <p class="sub">Executive status · Dental Marketing client websites</p>
+  </div>
+  <div class="asof">Status as of<br><b>Wednesday, November 18, 2026</b></div>
+</header>
+
+<div class="card">
+  <p class="headline"><b>50 client sites are live on the new Astro platform</b>, up from 0 on October 23. All 38 sites already on our Cloudflare are done. The remaining work is the 148-site nameserver pipeline, where <b>12 are live</b> and a daily automated check now launches each site as soon as its nameservers are switched. <b>The bottleneck has moved from engineering to client approvals</b>: 38 approvals in, 105 still outstanding.</p>
+</div>
+
+<div class="section kpis">
+  <div class="card kpi accent"><div class="n">50</div><div class="l">Sites live on Astro</div><div class="d">38 already on Cloudflare + 12 via nameserver switch</div></div>
+  <div class="card kpi good"><div class="n">8</div><div class="l">Launched by automation</div><div class="d">Daily check, live since Nov 13, zero rollbacks</div></div>
+  <div class="card kpi warn"><div class="n">105</div><div class="l">Approvals outstanding</div><div class="d">Of 148 in the pipeline; 81 not yet contacted</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">Failed launches</div><div class="d">Every cutover verified; problems caught before go-live</div></div>
+</div>
+
+<div class="section grid2">
+  <div class="card">
+    <h2>Sites launched by date</h2>
+    <div class="tl" role="img" aria-label="Sites launched per day: Oct 24, 1; Oct 26, 19; Oct 30, 18; Nov 12, 1; Nov 16, 2 automated; Nov 18, 6 automated plus 1 manual and 2 recorded.">
+      <div class="col"><div class="v">1</div><div class="stack" style="height:4.5%"><div class="seg" style="height:100%;background:var(--bar)"></div></div></div>
+      <div class="col"><div class="v">19</div><div class="stack" style="height:86%"><div class="seg" style="height:100%;background:var(--bar)"></div></div></div>
+      <div class="col"><div class="v">18</div><div class="stack" style="height:81.5%"><div class="seg" style="height:100%;background:var(--bar)"></div></div></div>
+      <div class="col"><div class="v">1</div><div class="stack" style="height:4.5%"><div class="seg" style="height:100%;background:var(--bar)"></div></div></div>
+      <div class="col"><div class="v">2</div><div class="stack" style="height:9%"><div class="seg" style="height:100%;background:var(--bar-auto)"></div></div></div>
+      <div class="col"><div class="v">9</div><div class="stack" style="height:40.5%"><div class="seg" style="height:66.7%;background:var(--bar-auto)"></div><div class="seg" style="height:11.1%;background:var(--bar)"></div><div class="seg" style="height:22.2%;background:var(--bar-manual)"></div></div></div>
+    </div>
+    <div class="tl-x"><div>Oct 24</div><div>Oct 26</div><div>Oct 30</div><div>Nov 12</div><div>Nov 16</div><div>Nov 18</div></div>
+    <div class="legend"><span><i style="background:var(--bar)"></i>Launched by Chris + Claude</span><span><i style="background:var(--bar-auto)"></i>Launched by daily automation</span><span><i style="background:var(--bar-manual)"></i>Already live, recorded today</span></div>
+    <p class="note">Oct 24 was the pilot (smilesofpensacola.com). Oct 26 and Oct 30 were the two waves of sites already on our Cloudflare. From Nov 12 on, launches follow nameserver switches.</p>
+  </div>
+
+  <div class="card funnel">
+    <h2>Nameserver pipeline · 148 sites</h2>
+    <div class="row"><div class="lab">Client contacted</div><div class="track"><div class="fill" style="width:32.4%"></div></div><div class="num">48</div></div>
+    <div class="row"><div class="lab">Approval to switch</div><div class="track"><div class="fill" style="width:25.7%"></div></div><div class="num">38</div></div>
+    <div class="row"><div class="lab">DNS records QA'd</div><div class="track"><div class="fill" style="width:14.2%"></div></div><div class="num">21</div></div>
+    <div class="row"><div class="lab">Nameservers switched</div><div class="track"><div class="fill" style="width:8.8%"></div></div><div class="num">13</div></div>
+    <div class="row"><div class="lab">Live on Astro</div><div class="track"><div class="fill" style="width:8.1%;background:var(--good)"></div></div><div class="num">12</div></div>
+    <p class="note">All 38 approvals and all 12 launches are in Batch 1 (50 sites). Batches 2 and 3 (98 sites) have 13 contacts and no approvals yet. 20 sites are on hold (open support tickets, lost clients, or domain on another Cloudflare account). 5 clients declined or can't switch.</p>
+  </div>
+</div>
+
+<div class="section card">
+  <h2>How a site goes live</h2>
+  <div class="flow">
+    <div class="step"><b>1 · Roxy</b><span>Client approval, domain added to Cloudflare</span></div>
+    <div class="step"><b>2 · Ignacio</b><span>QA the DNS records, switch nameservers</span></div>
+    <div class="step"><b>3 · Daily check (9:41 ET)</b><span>Preflight, launch, verify, update sheet</span></div>
+    <div class="step"><b>4 · Judith</b><span>Post-launch checks, cancel Webflow hosting</span></div>
+  </div>
+  <p class="note">The daily check reads the control sheet and team Slack, refuses to launch anything that fails preflight (wrong content, firewall rules, unexpected DNS), rolls back on failure, and posts one summary to the team each weekday. A human approves any security or email change.</p>
+</div>
+
+<div class="section grid2">
+  <div class="card">
+    <h2>Problems caught before they reached clients</h2>
+    <ul class="clean">
+      <li><span class="tag t-good">Caught</span><span class="li-t">Template content on production, 2 sites</span><div class="li-d">The new site's live branch still had sample data. Preflight blocked the launch until the build was fixed.</div></li>
+      <li><span class="tag t-good">Fixed</span><span class="li-t">Old firewall rules waking up, 5 sites</span><div class="li-d">2023 rules blocking visitors outside the US became active once traffic ran through Cloudflare. Disabled; now checked before every launch.</div></li>
+      <li><span class="tag t-good">Fixed</span><span class="li-t">Old domains left behind, 3 restored</span><div class="li-d">Secondary domains that relied on Webflow broke when hosting ended. Now redirect to the new sites; one more (citydentalart.com) queued before Webflow is cancelled.</div></li>
+      <li><span class="tag t-good">Fixed</span><span class="li-t">Email authentication errors, 2 practices</span><div class="li-d">A mail-server mismatch and a duplicate policy record, found during launch checks and corrected.</div></li>
+      <li><span class="tag t-acc">Found</span><span class="li-t">Google Ads crawler errors on a WordPress client</span><div class="li-d">Ads stopped serving because the host site crashed for Google's bot. Diagnosed and handed to the hosting owner.</div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Decisions and blockers</h2>
+    <table>
+      <thead><tr><th>Item</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><b>Client approvals:</b> 105 outstanding, 81 not contacted, Batches 2 and 3 barely started</td><td class="owner">Roxy</td></tr>
+        <tr><td><b>Approval gap:</b> 8 sites have DNS QA done but no client approval recorded</td><td class="owner">Roxy</td></tr>
+        <tr><td><b>Nameserver switches waiting:</b> leawood.dental, tennesseefamilydentalcare.com (approved and QA'd)</td><td class="owner">Ignacio</td></tr>
+        <tr><td><b>Approved, awaiting DNS QA:</b> 23 sites</td><td class="owner">Ignacio</td></tr>
+        <tr><td><b>Novelle Dental Studio:</b> ready to replace its Coming Soon page?</td><td class="owner">Chris</td></tr>
+        <tr><td><b>New-build sites:</b> auto-launch, or approve each one?</td><td class="owner">Chris</td></tr>
+        <tr><td><b>40 sites still on Cloudflare Pages</b> with custom domains: plan the move to Workers</td><td class="owner">Chris / Judith</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section grid2">
+  <div class="card">
+    <h2>Platform footprint</h2>
+    <table>
+      <tbody>
+        <tr><td>Cloudflare domains (zones)</td><td class="num">316</td></tr>
+        <tr><td>&nbsp;&nbsp;Active on our nameservers</td><td class="num">179</td></tr>
+        <tr><td>&nbsp;&nbsp;Added, waiting for nameserver switch</td><td class="num">136</td></tr>
+        <tr><td>Client sites on Workers (target platform)</td><td class="num">159</td></tr>
+        <tr><td>Client sites on Pages (older setup)</td><td class="num">83</td></tr>
+        <tr><td>&nbsp;&nbsp;Pages sites with a live custom domain</td><td class="num">40</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Counts include main sites plus their landing-page, promo and coming-soon variants.</p>
+  </div>
+
+  <div class="card">
+    <h2>Next two weeks</h2>
+    <ul class="clean">
+      <li><span class="li-t">Close out Batch 1</span><div class="li-d">26 Batch 1 approvals are not yet live. Each launches the morning after its nameservers are switched.</div></li>
+      <li><span class="li-t">Start outreach on Batches 2 and 3</span><div class="li-d">98 sites, 13 contacted so far. This is now the pace-setting step.</div></li>
+      <li><span class="li-t">Retire Webflow hosting as sites go live</span><div class="li-d">Only after any old domains are moved, so nothing breaks.</div></li>
+      <li><span class="li-t">Plan the Pages to Workers move</span><div class="li-d">40 live sites; not urgent, they work today.</div></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  Sources: Webflow to Astro Migration Control Sheet ("Roxy - Batches", read Nov 18), Cloudflare account Dental Marketing (read Nov 18), dm-launcher launch logs. Launch counts: pilot 1, wave 1 19, wave 2 18, nameserver pipeline 12 (Articulate, Zurcher, Relax and Smile, City Dental Arts ×2, Royersford, Whitman, Bees Ferry, Northwest Dental Studio, Nova Dental Arts, plus Valley View and Highrock, live earlier and recorded Nov 18).
+</footer>
+
+</div>
+</body>
+</html>
