@@ -17,6 +17,7 @@ for line in txt.splitlines():
         val = ''.join(re.findall(r'"((?:[^"\\]|\\.)*)"', rest)) or rest
     else:
         val = rest.strip().rstrip('.')
+        if val == '@': val = D
     want.append((t, name, val))
 tok = os.environ['CLOUDFLARE_API_TOKEN']
 def get(u):
