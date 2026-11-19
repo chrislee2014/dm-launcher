@@ -75,9 +75,16 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
      in `http_request_dynamic_redirect` (host in {apex, www} → 301 to
      `concat("https://<canonical host>", http.request.uri.path)`, query kept),
      apex A → `192.0.2.1` proxied, www → CNAME @ proxied, then verify. Leave MX
-     and every other record alone. If the alias is not in our account or not
-     active: tag Roxy (add it to Cloudflare) and Ignacio (nameservers), and tell
-     Judith in the launch DM **not to cancel Webflow until the alias is moved**.
+     and every other record alone. If the alias is not in our account: a "hold
+     Webflow" request has NOT been enough (citydentalart.com broke the next day,
+     2026-11-19), so tag Roxy/Ignacio to add it the same day, and list every
+     record the alias has on public DNS (MX, SPF, verification TXT) in the message
+     so nothing is lost at the nameserver switch. Also tell Judith not to cancel
+     Webflow until it is moved.
+   - **promo./visit. records still on Webflow after a launch** (cdn.webflow.com /
+     proxy-ssl.webflow.com, often error 1014): these are Judith's post-launch
+     redirect.pizza step. Mention them in Judith's launch DM, not to Chris, and
+     never delete them.
    - **Failed:** roll back (remove the custom domains, recreate the snapshotted
      records), broker note in Q with the reason, tag **Chris** in the channel. If
      the cause is on Judith's side (build/config), DM Judith instead.
