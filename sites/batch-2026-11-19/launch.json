@@ -1,0 +1,170 @@
+[
+ {
+  "domain": "bespokedentistrytx.com",
+  "snapshot": [
+   "A bespokedentistrytx.com 198.202.211.1 proxied=False",
+   "CNAME www.bespokedentistrytx.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "cherishyoursmile.com",
+  "snapshot": [
+   "A cherishyoursmile.com 198.202.211.1 proxied=False",
+   "CNAME www.cherishyoursmile.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "hilldentalstudiotn.com",
+  "snapshot": [
+   "A hilldentalstudiotn.com 198.202.211.1 proxied=False",
+   "CNAME www.hilldentalstudiotn.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "odentalsmiles.com",
+  "snapshot": [
+   "A odentalsmiles.com 198.202.211.1 proxied=False",
+   "CNAME www.odentalsmiles.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "pebblecreekdentalandimplants.com",
+  "snapshot": [
+   "A pebblecreekdentalandimplants.com 198.202.211.1 proxied=False",
+   "CNAME www.pebblecreekdentalandimplants.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "tworiversdentalmo.com",
+  "snapshot": [
+   "A tworiversdentalmo.com 198.202.211.1 proxied=False",
+   "CNAME www.tworiversdentalmo.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "mydentalworlds.com",
+  "snapshot": [
+   "A mydentalworlds.com 198.202.211.1 proxied=False",
+   "CNAME www.mydentalworlds.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "chisholmcreekdental.com",
+  "snapshot": [
+   "A chisholmcreekdental.com 198.202.211.1 proxied=False",
+   "CNAME www.chisholmcreekdental.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "whitedental.org",
+  "snapshot": [
+   "A whitedental.org 198.202.211.1 proxied=False",
+   "CNAME www.whitedental.org cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "centraldentalaz.com",
+  "snapshot": [
+   "A centraldentalaz.com 198.202.211.1 proxied=False",
+   "CNAME www.centraldentalaz.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "claassenfamilyandcosmeticdentistry.com",
+  "snapshot": [
+   "A claassenfamilyandcosmeticdentistry.com 198.202.211.1 proxied=False",
+   "CNAME www.claassenfamilyandcosmeticdentistry.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "yuleefamilydentistry.com",
+  "snapshot": [
+   "A yuleefamilydentistry.com 198.202.211.1 proxied=False",
+   "CNAME www.yuleefamilydentistry.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "bleupediatricdentistryorthodontics.com",
+  "snapshot": [
+   "A bleupediatricdentistryorthodontics.com 198.202.211.1 proxied=False",
+   "CNAME www.bleupediatricdentistryorthodontics.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "veritydentalandimplants.com",
+  "snapshot": [
+   "A veritydentalandimplants.com 198.202.211.1 proxied=False",
+   "CNAME www.veritydentalandimplants.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "bensalemdentalcare.com",
+  "snapshot": [
+   "A bensalemdentalcare.com 198.202.211.1 proxied=False",
+   "CNAME www.bensalemdentalcare.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "hutchinsonfamilydental.com",
+  "snapshot": [
+   "A hutchinsonfamilydental.com 198.202.211.1 proxied=False",
+   "CNAME www.hutchinsonfamilydental.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "eastlakefamilydental.com",
+  "snapshot": [
+   "A eastlakefamilydental.com 198.202.211.1 proxied=False",
+   "CNAME www.eastlakefamilydental.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "fruitlandparkdentistry.com",
+  "snapshot": [
+   "A fruitlandparkdentistry.com 198.202.211.1 proxied=False",
+   "CNAME www.fruitlandparkdentistry.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "fangdentalstudio.com",
+  "snapshot": [
+   "A fangdentalstudio.com 198.202.211.1 proxied=False",
+   "CNAME www.fangdentalstudio.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "kidstowndentist.com",
+  "snapshot": [
+   "A kidstowndentist.com 198.202.211.1 proxied=False",
+   "CNAME www.kidstowndentist.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ },
+ {
+  "domain": "solaradentalfl.com",
+  "snapshot": [
+   "A solaradentalfl.com 198.202.211.1 proxied=False",
+   "CNAME www.solaradentalfl.com cdn.webflow.com proxied=False"
+  ],
+  "result": "launched"
+ }
+]

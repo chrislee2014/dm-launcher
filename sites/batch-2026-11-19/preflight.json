@@ -1,0 +1,868 @@
+[
+ {
+  "domain": "bespokedentistrytx.com",
+  "problems": [
+   "Coming Soon title"
+  ],
+  "worker": "bespokedentistrytx-com",
+  "zone": "153e2284e4df3f259c2d442bbe95cc87",
+  "deploy": "2026-11-16T15:53 judith.sequen@dentalmarketing.com",
+  "canonical": "www.bespokedentistrytx.com",
+  "title": "Bespoke Dentistry | Coming Soon in Katy, TX",
+  "tel": [],
+  "sitemap": "https://www.bespokedentistrytx.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "5417966f15ecfb8645d0622337901631",
+    "type": "A",
+    "name": "bespokedentistrytx.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "f2440bf28762fe41375c297ce3f5164c",
+    "type": "CNAME",
+    "name": "www.bespokedentistrytx.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "cherishyoursmile.com",
+  "problems": [],
+  "worker": "cherishyoursmile-com",
+  "zone": "c536d4711f90dfb7fda5a9d1e22697e5",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.cherishyoursmile.com",
+  "title": "Dentist in Taylorsville, UT 84123 | Cherish Your Smile",
+  "tel": [
+   "tel:+13854063127"
+  ],
+  "sitemap": "https://www.cherishyoursmile.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "d313771d76f46ac7431a1a60e7ece700",
+    "type": "A",
+    "name": "cherishyoursmile.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "b0b6e3410beb28790ba73e159f64bd79",
+    "type": "CNAME",
+    "name": "www.cherishyoursmile.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "hilldentalstudiotn.com",
+  "problems": [],
+  "worker": "hilldentalstudiotn-com",
+  "zone": "680903daff17ddd58e85ff0ae9c31f48",
+  "deploy": "2026-11-16T15:47 judith.sequen@dentalmarketing.com",
+  "canonical": "www.hilldentalstudiotn.com",
+  "title": "Hill Dental Studio | Trusted Family Dentist in Hixson, TN",
+  "tel": [
+   "tel:+14234543649"
+  ],
+  "sitemap": "https://www.hilldentalstudiotn.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "11780d50b90848a51a1bc4754f45231f",
+    "type": "A",
+    "name": "hilldentalstudiotn.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "4fda7069cc0a78cd2e4797487fd84f37",
+    "type": "CNAME",
+    "name": "www.hilldentalstudiotn.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "odentalsmiles.com",
+  "problems": [],
+  "worker": "odentalsmiles-com",
+  "zone": "04eb0f0429df3bf8e0ce5b1b51cdb81b",
+  "deploy": "2026-11-12T17:04 judith.sequen@dentalmarketing.com",
+  "canonical": "www.odentalsmiles.com",
+  "title": "Dentist in Grasonville, MD | O Dental",
+  "tel": [
+   "tel:+14104573883"
+  ],
+  "sitemap": "https://www.odentalsmiles.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "e099d33bef4f4ce1bc3ac8f894ab359f",
+    "type": "A",
+    "name": "odentalsmiles.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "75f1bc1a450758d397dc47fa8fff8b31",
+    "type": "CNAME",
+    "name": "www.odentalsmiles.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "pebblecreekdentalandimplants.com",
+  "problems": [],
+  "worker": "pebblecreekdentalandimplants-com",
+  "zone": "2cb2f2d96d9cb149f67d783a8803e496",
+  "deploy": "2026-11-12T17:04 judith.sequen@dentalmarketing.com",
+  "canonical": "www.pebblecreekdentalandimplants.com",
+  "title": "Pebble Creek Dental &amp; Implants Opening Soon in Fall  2026 | Lewiston, ID",
+  "tel": [],
+  "sitemap": "https://www.pebblecreekdentalandimplants.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "d1f22b5fa54fbd011ae484b2abb2bf97",
+    "type": "A",
+    "name": "pebblecreekdentalandimplants.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "ee8080fd7266422cc75e67b964c19344",
+    "type": "CNAME",
+    "name": "www.pebblecreekdentalandimplants.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "tworiversdentalmo.com",
+  "problems": [],
+  "worker": "tworiversdentalmo-com",
+  "zone": "1d733271bca004eaa17ebfb1da214070",
+  "deploy": "2026-11-16T15:51 judith.sequen@dentalmarketing.com",
+  "canonical": "www.tworiversdentalmo.com",
+  "title": "Two Rivers Dental | Dentist in Nixa, MO",
+  "tel": [
+   "tel:+14174874318"
+  ],
+  "sitemap": "https://www.tworiversdentalmo.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "753f8709a5d64504f5a5b15a1a61e6ce",
+    "type": "A",
+    "name": "tworiversdentalmo.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "0156bdc666fb6ee45b06aa8801ac4321",
+    "type": "CNAME",
+    "name": "www.tworiversdentalmo.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "mydentalworlds.com",
+  "problems": [],
+  "worker": "mydentalworlds-com",
+  "zone": "b0c3185fd0341241be9a70baf8d6f289",
+  "deploy": "2026-11-16T15:49 judith.sequen@dentalmarketing.com",
+  "canonical": "www.mydentalworlds.com",
+  "title": "DentalWorld | Dentist in Salisbury, NC",
+  "tel": [
+   "tel:+19802944419"
+  ],
+  "sitemap": "https://www.mydentalworlds.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "fe8298725250671300fad12802b77bc8",
+    "type": "A",
+    "name": "mydentalworlds.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "da14ddf7cae5ba3285961a07c2382b45",
+    "type": "CNAME",
+    "name": "www.mydentalworlds.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "chisholmcreekdental.com",
+  "problems": [],
+  "worker": "chisholmcreekdental-com",
+  "zone": "e5e151b92d320a9e731cb14c16980f02",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.chisholmcreekdental.com",
+  "title": "Dentist in Wichita, KS | Chisholm Creek Dental",
+  "tel": [
+   "tel:+13162513106"
+  ],
+  "sitemap": "https://www.chisholmcreekdental.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "c790caa02cdee71dcce08bebd869ff51",
+    "type": "A",
+    "name": "chisholmcreekdental.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "679393ec1c73471c46bce652b85f275d",
+    "type": "CNAME",
+    "name": "www.chisholmcreekdental.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": [
+    "hertzlerdds.com"
+   ]
+  }
+ },
+ {
+  "domain": "whitedental.org",
+  "problems": [],
+  "worker": "whitedental-org",
+  "zone": "c7a5b712853f3a44063d65644ae35edc",
+  "deploy": "2026-11-16T15:52 judith.sequen@dentalmarketing.com",
+  "canonical": "www.whitedental.org",
+  "title": "Quality Dental Care in Tremonton, UT | White Dental",
+  "tel": [
+   "tel:+14352573210"
+  ],
+  "sitemap": "https://www.whitedental.org/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "93ee470a3b0e7e91b73a98b6c2513f9b",
+    "type": "A",
+    "name": "whitedental.org",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "3e5af2350a6290a8eec2e7dc2ccb01a6",
+    "type": "CNAME",
+    "name": "www.whitedental.org",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "centraldentalaz.com",
+  "problems": [],
+  "worker": "centraldentalaz-com",
+  "zone": "be22b807198de0ab192776eeba74f868",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.centraldentalaz.com",
+  "title": "Central Dental | Trusted Family Dentistry in Phoenix, AZ",
+  "tel": [
+   "tel:+16234699063"
+  ],
+  "sitemap": "https://www.centraldentalaz.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "e08b298297697c37322a023b9edc6bf3",
+    "type": "A",
+    "name": "centraldentalaz.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "ce019a33a5c9a3e842e5b229cc843f9c",
+    "type": "CNAME",
+    "name": "www.centraldentalaz.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "claassenfamilyandcosmeticdentistry.com",
+  "problems": [],
+  "worker": "claassenfamilyandcosmeticdentistry-com",
+  "zone": "4b44c465798e8cdcf3144996beffc752",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.claassenfamilyandcosmeticdentistry.com",
+  "title": "Family and Cosmetic Dentistry in Richardson, TX | Claassen Family Dentistry",
+  "tel": [
+   "tel:+19728469512"
+  ],
+  "sitemap": "https://www.claassenfamilyandcosmeticdentistry.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "a886a1995243db47924139c55fb6812c",
+    "type": "A",
+    "name": "claassenfamilyandcosmeticdentistry.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "acd4ed7a8eda626be7321465d1acbec0",
+    "type": "CNAME",
+    "name": "www.claassenfamilyandcosmeticdentistry.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "yuleefamilydentistry.com",
+  "problems": [],
+  "worker": "yuleefamilydentistry-com",
+  "zone": "e3c527ffce9fc3af23b2ea9aa6e665f3",
+  "deploy": "2026-11-16T15:52 judith.sequen@dentalmarketing.com",
+  "canonical": "www.yuleefamilydentistry.com",
+  "title": "Yulee Family Dentistry | Gentle, Local Dental Care in Yulee, FL",
+  "tel": [
+   "tel:+19045934466"
+  ],
+  "sitemap": "https://www.yuleefamilydentistry.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "8c16bcb4b537c56c27172b0ccdbbea61",
+    "type": "A",
+    "name": "yuleefamilydentistry.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "0be16c30cf38e3e71cb964d8edfa3e02",
+    "type": "CNAME",
+    "name": "www.yuleefamilydentistry.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "bleupediatricdentistryorthodontics.com",
+  "problems": [],
+  "worker": "bleupediatricdentistryorthodontics-com",
+  "zone": "c24d2749d94e0baaca22cc839bec2e2d",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.bleupediatricdentistryorthodontics.com",
+  "title": "Pediatric Dentist in The Woodlands, TX | Compassionate Dental Care",
+  "tel": [
+   "tel:+13467681431"
+  ],
+  "sitemap": "https://www.bleupediatricdentistryorthodontics.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "8ff7a41316e4349d78698a8ca30fea20",
+    "type": "A",
+    "name": "bleupediatricdentistryorthodontics.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "f77dca9b0e6d7ba36cd6f22bc794bfcb",
+    "type": "CNAME",
+    "name": "www.bleupediatricdentistryorthodontics.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "veritydentalandimplants.com",
+  "problems": [],
+  "worker": "veritydentalandimplants-com",
+  "zone": "f85313faf02fa3ebabcb364843a28b65",
+  "deploy": "2026-11-16T15:52 judith.sequen@dentalmarketing.com",
+  "canonical": "www.veritydentalandimplants.com",
+  "title": "Verity Dental &amp; Implant Center | Dentist in Salt Lake City, UT",
+  "tel": [
+   "tel:+18019236931"
+  ],
+  "sitemap": "https://www.veritydentalandimplants.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "5e4e6162070557a39d68bd089777c5a5",
+    "type": "A",
+    "name": "veritydentalandimplants.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "f69a785f494eba9cd8cb7aaa6f181f47",
+    "type": "CNAME",
+    "name": "www.veritydentalandimplants.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": [
+    "completesmilessh.com"
+   ]
+  }
+ },
+ {
+  "domain": "bensalemdentalcare.com",
+  "problems": [],
+  "worker": "bensalemdentalcare-com",
+  "zone": "e31f80ca99b216e0504cdbbd477e400b",
+  "deploy": "2026-11-16T15:45 judith.sequen@dentalmarketing.com",
+  "canonical": "www.bensalemdentalcare.com",
+  "title": "Bensalem Dental Dentures Implants | Dentist in Bensalem, PA",
+  "tel": [
+   "tel:+12154475334"
+  ],
+  "sitemap": "https://www.bensalemdentalcare.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "564e962cf5724f95fc78cbeac19fc714",
+    "type": "A",
+    "name": "bensalemdentalcare.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "52ac15e7d7d37d1b46b248091e7f6942",
+    "type": "CNAME",
+    "name": "www.bensalemdentalcare.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "hutchinsonfamilydental.com",
+  "problems": [],
+  "worker": "hutchinsonfamilydental-com",
+  "zone": "17e2ed62aeaebf29b04e51ca9210749d",
+  "deploy": "2026-11-16T15:47 judith.sequen@dentalmarketing.com",
+  "canonical": "www.hutchinsonfamilydental.com",
+  "title": "Hutchinson Family Dental | Trusted Dentist in Hutchinson, KS",
+  "tel": [
+   "tel:+16206639119",
+   "tel:+16207508364"
+  ],
+  "sitemap": "https://www.hutchinsonfamilydental.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "fa6a9f6c1ae0b85b4309387e733243ea",
+    "type": "A",
+    "name": "hutchinsonfamilydental.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "dbb3e733d7ed00a3cc0a8d87a9725079",
+    "type": "CNAME",
+    "name": "www.hutchinsonfamilydental.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "eastlakefamilydental.com",
+  "problems": [],
+  "worker": "eastlakefamilydental-com",
+  "zone": "de5fbd54d35d056f59eff324e652cd80",
+  "deploy": "2026-11-16T15:46 judith.sequen@dentalmarketing.com",
+  "canonical": "www.eastlakefamilydental.com",
+  "title": "Family Dentist in St. Cloud, FL | East Lake Family Dental",
+  "tel": [
+   "tel:(321)236-1393"
+  ],
+  "sitemap": "https://www.eastlakefamilydental.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "32179ee2d3211f6c54393a6582ec8979",
+    "type": "A",
+    "name": "eastlakefamilydental.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "7ffe105f0558d4b7a742bd853ab9796d",
+    "type": "CNAME",
+    "name": "www.eastlakefamilydental.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "fruitlandparkdentistry.com",
+  "problems": [],
+  "worker": "fruitlandparkdentistry-com",
+  "zone": "829673ddbaeb5a7817dabca5cc35507c",
+  "deploy": "2026-11-16T15:47 judith.sequen@dentalmarketing.com",
+  "canonical": "www.fruitlandparkdentistry.com",
+  "title": "Dentist in Fruitland Park, FL | Comfortable Local Dental Care",
+  "tel": [
+   "tel:+13523014267"
+  ],
+  "sitemap": "https://www.fruitlandparkdentistry.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "ebad1f42e6982c774f73845b9768145d",
+    "type": "A",
+    "name": "fruitlandparkdentistry.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "ab6995854c382f4d3864ca09675c824b",
+    "type": "CNAME",
+    "name": "www.fruitlandparkdentistry.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": [
+    "jonesdentistryfl.com"
+   ]
+  }
+ },
+ {
+  "domain": "fangdentalstudio.com",
+  "problems": [],
+  "worker": "fangdentalstudio-com",
+  "zone": "78f3a16c38a0c39bc6139af2112c19c9",
+  "deploy": "2026-11-16T15:46 judith.sequen@dentalmarketing.com",
+  "canonical": "www.fangdentalstudio.com",
+  "title": "Modern Dentistry in Monrovia, CA | Fang Dental Studio",
+  "tel": [
+   "tel:+16267610059"
+  ],
+  "sitemap": "https://www.fangdentalstudio.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "8531ebdd9c8244776bdb71ed3735c46a",
+    "type": "A",
+    "name": "fangdentalstudio.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "1956453758a913e43ccacf49faf88ff3",
+    "type": "CNAME",
+    "name": "www.fangdentalstudio.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "kidstowndentist.com",
+  "problems": [],
+  "worker": "kidstowndentist-com",
+  "zone": "2a7a6be1806e71397c6d5e2b34f48c3c",
+  "deploy": "2026-11-16T15:48 judith.sequen@dentalmarketing.com",
+  "canonical": "www.kidstowndentist.com",
+  "title": "Kidstown Dental | Pediatric Dentist in Katy, TX | Gentle Kids&#39; Dental Care",
+  "tel": [
+   "tel:+13467680292"
+  ],
+  "sitemap": "https://www.kidstowndentist.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "c7f7f266ddf2f921de8013c36ce54916",
+    "type": "A",
+    "name": "kidstowndentist.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "b9300d9fe86c9977628823f1f03226c6",
+    "type": "CNAME",
+    "name": "www.kidstowndentist.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 1,
+   "aliases": []
+  }
+ },
+ {
+  "domain": "solaradentalfl.com",
+  "problems": [
+   "Coming Soon title"
+  ],
+  "worker": "solaradentalfl-com",
+  "zone": "28dba9d89efcc62a6311985c577e0bc3",
+  "deploy": "2026-11-12T17:08 judith.sequen@dentalmarketing.com",
+  "canonical": "www.solaradentalfl.com",
+  "title": "Solara Dental | Coming Soon to Port St. Lucie | Dr. Emily Pham",
+  "tel": [],
+  "sitemap": "https://www.solaradentalfl.com/sitemap.xml",
+  "web": [
+   "A @ 198.202.211.1",
+   "CNAME www cdn.webflow.com"
+  ],
+  "web_ids": [
+   {
+    "id": "1ef5f2f335095eba19778969efd1727b",
+    "type": "A",
+    "name": "solaradentalfl.com",
+    "content": "198.202.211.1",
+    "proxied": false,
+    "ttl": 1
+   },
+   {
+    "id": "e1382f6fc220dcfd4a3bcc63199d4db1",
+    "type": "CNAME",
+    "name": "www.solaradentalfl.com",
+    "content": "cdn.webflow.com",
+    "proxied": false,
+    "ttl": 1
+   }
+  ],
+  "other_webflow": [],
+  "pagerules": [],
+  "hubspot": {
+   "companies": 0,
+   "aliases": []
+  }
+ }
+]
