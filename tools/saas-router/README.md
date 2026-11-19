@@ -37,3 +37,16 @@ Enabled on the **dentalmarketing.com** zone by Chris, 2026-11-19.
   404 on unknown path. Sheet P=Yes + note (O will stay blank: no nameserver switch). Judith DM'd.
 - Rollback: www CNAME → cdn.webflow.com and apex A → 198.202.211.1 at Network Solutions (only while
   Webflow hosting is still active).
+
+## Outage 2026-11-19: custom hostname went "moved", certificate deleted
+
+Symptom: https://www.robinwoodsmiles.com failed the TLS handshake and http returned 409.
+The custom hostname showed `status: moved` and SSL `deleted`, even though the www CNAME
+still pointed at `sites.dentalmarketing.com`.
+
+Fix: re-issue SSL on the custom hostname (PATCH `ssl` with `method: http`, `type: dv`).
+It went active with a new certificate in about 75 seconds, and the site returned 200.
+
+Suspected trigger: a stale, never-activated pending zone `robinwoodsmiles.com`
+(0585e893f5f0c4422589ea75f3aba051) in the same account. Deleting it needs Chris's OK.
+Until it is gone, check this hostname in the daily sweep.

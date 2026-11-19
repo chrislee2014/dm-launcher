@@ -98,3 +98,11 @@ zaragozafamilydental). accdfl.com was already active and broken (no live value l
 **Catch it:** before any switch, run `python3 tools/zonecheck.py <godaddy-export.txt>` (needs
 `CLOUDFLARE_API_TOKEN`), and check that every `include:` inside the zone's own domain exists.
 The import also skipped plain A records on hutchinsonfamilydental.com (`cpcalendar`, `hutchinson`).
+
+## 9. SaaS custom hostname flips to "moved" and loses its certificate
+
+An outside-DNS client served through Cloudflare for SaaS (robinwoodsmiles.com) went down with
+a TLS handshake failure even though its CNAME was correct. Cloudflare had marked the custom
+hostname `moved` and deleted its certificate. Re-issuing SSL on the hostname (HTTP validation)
+restored it in about a minute. Delete any leftover pending zone for the same domain in our
+account, and include SaaS hostnames in the daily broken-domain sweep (status must be `active`/`active`).
