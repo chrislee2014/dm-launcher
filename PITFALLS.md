@@ -81,3 +81,20 @@ to that Webflow site (Webflow site settings → Publishing → custom domains) a
 move each extra one first: a zone in our Cloudflare with a proxied placeholder
 record and a path-keeping 301 Redirect Rule to the canonical host, then switch its
 nameservers. Add these alias domains to the sheet so the daily check sees them.
+
+## 8. Cloudflare's import drops GoDaddy's hidden SPF sub-record
+
+GoDaddy-managed SPF often looks like `v=spf1 include:dc-aa8e722993._spfm.<domain> ~all`, with the
+real list (`v=spf1 include:_spf.google.com ~all`) in a TXT record at `dc-aa8e722993._spfm.<domain>`.
+Cloudflare's automatic import skipped that sub-record on **22 zones** (found 2026-11-19 while
+checking fangdentalstudio.com). After a nameserver switch the include fails, SPF breaks, and with
+DMARC `p=reject`/`quarantine` the practice's outgoing mail is rejected or spammed.
+**Fixed:** copied the live GoDaddy value into all 21 pending zones (fangdentalstudio.com plus
+abledentistrytx, aramdentalstudio, carbonvalleydentalco, dazzledentaltx, dyersunnysmiles,
+elevateddentalatx, fowlerdentaltn, gatewaydentalep, granddental.ca, harbourdentalstudio,
+kronadentistry, mayflowerdentalcare, monarchdentalstudio, peachysmilesnc, simplysmiledentalstudio,
+simpsonsmilestudio, smilehausdentalstudio, solaradentalfl, toothandtox, tworiversdentalmo,
+zaragozafamilydental). accdfl.com was already active and broken (no live value left to copy).
+**Catch it:** before any switch, run `python3 tools/zonecheck.py <godaddy-export.txt>` (needs
+`CLOUDFLARE_API_TOKEN`), and check that every `include:` inside the zone's own domain exists.
+The import also skipped plain A records on hutchinsonfamilydental.com (`cpcalendar`, `hutchinson`).
