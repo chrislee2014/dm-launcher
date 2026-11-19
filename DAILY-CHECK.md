@@ -37,6 +37,9 @@ this file, RUNBOOK.md, PITFALLS.md and sites/ are what carry over.
 2. **Candidates:** column E set, and B = "Nameservers Switched" **or** O = "Yes".
    Skip if P = "Yes" (already launched), R (Hold) is not empty, or the Sites tab
    marks the domain HOLD/PAUSED.
+   **Held by decision** (skip; don't report as blocked; mention only if something changes):
+   - novelledentalstudio.com: Coming Soon LP on 191.101.12.84 is intentional (Judith/Chris,
+     2026-11-19). Launch only when Judith or Chris says go in Slack.
 3. **Preflight** each candidate (RUNBOOK step 0 plus PITFALLS #1, #5, #6):
    - zone exists in our account and is **active** (NS on our Cloudflare pair);
      if pending, trigger `activation_check` and retry next run
