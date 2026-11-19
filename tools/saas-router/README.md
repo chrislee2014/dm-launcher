@@ -21,4 +21,19 @@ Enabled on the **dentalmarketing.com** zone by Chris, 2026-11-19.
 ## Clients
 | Domain | Custom hostname id | Status |
 |---|---|---|
-| www.robinwoodsmiles.com | b54fafd1-1966-489b-9293-4f971e6b582f | waiting on Network Solutions TXT records (2026-11-19) |
+| www.robinwoodsmiles.com | b54fafd1-1966-489b-9293-4f971e6b582f | **live 2026-11-19 ~13:50 ET** (see below) |
+
+## robinwoodsmiles.com launch notes (2026-11-19)
+
+- Registrar GoDaddy (client account, no access); DNS at Network Solutions (worldnic). No MX.
+- Chris made the phase-2 changes directly (skipped the phase-1 TXT records): `www` CNAME →
+  sites.dentalmarketing.com; apex A → 89.106.200.1 (redirect.pizza: 301 → https://www.robinwoodsmiles.com,
+  path + query forwarding, SSL by redirect.pizza).
+- Hostname went active on the CNAME. SSL was on TXT validation, so switched it to **HTTP** validation
+  (`PATCH ssl.method=http`); SSL.com issued ~8 min later. Lesson: if the client goes straight to the
+  CNAME, use HTTP validation. Choosing the CA (google) is Enterprise-only.
+- Visitors kept getting Webflow until the hostname went active, then the Worker; no error window seen.
+- Verified: www 200 from Worker, http → https, apex http/https → www with path + query, robots/sitemap 200,
+  404 on unknown path. Sheet P=Yes + note (O will stay blank: no nameserver switch). Judith DM'd.
+- Rollback: www CNAME → cdn.webflow.com and apex A → 198.202.211.1 at Network Solutions (only while
+  Webflow hosting is still active).
